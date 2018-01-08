@@ -8,13 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		F79A8A8F2003BFCB00A7CB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8A8E2003BFCB00A7CB99 /* AppDelegate.swift */; };
-		F79A8A912003BFCB00A7CB99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8A902003BFCB00A7CB99 /* ViewController.swift */; };
+		F79A8A912003BFCB00A7CB99 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */; };
 		F79A8A942003BFCB00A7CB99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A8A922003BFCB00A7CB99 /* Main.storyboard */; };
 		F79A8A962003BFCB00A7CB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79A8A952003BFCB00A7CB99 /* Assets.xcassets */; };
 		F79A8A992003BFCB00A7CB99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A8A972003BFCB00A7CB99 /* LaunchScreen.storyboard */; };
 		F79A8AA42003BFCC00A7CB99 /* Instagram_cloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AA32003BFCC00A7CB99 /* Instagram_cloneTests.swift */; };
 		F79A8AAF2003BFCC00A7CB99 /* Instagram_cloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AAE2003BFCC00A7CB99 /* Instagram_cloneUITests.swift */; };
 		F79A8ABD2003C0EE00A7CB99 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8ABC2003C0EE00A7CB99 /* RootPageViewController.swift */; };
+		F79A8ABF2003E01900A7CB99 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8ABE2003E01900A7CB99 /* CameraViewController.swift */; };
+		F79A8AC12003E02F00A7CB99 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC02003E02F00A7CB99 /* MessagingViewController.swift */; };
+		F79A8AC32003E06E00A7CB99 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC22003E06E00A7CB99 /* LoginVC.swift */; };
+		F79A8AC52003E26C00A7CB99 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC42003E26C00A7CB99 /* MainVC.swift */; };
+		F79A8AC72003E28500A7CB99 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC62003E28500A7CB99 /* SearchVC.swift */; };
+		F79A8ACC2003F72200A7CB99 /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +43,7 @@
 /* Begin PBXFileReference section */
 		F79A8A8B2003BFCB00A7CB99 /* Instagram_clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram_clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79A8A8E2003BFCB00A7CB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F79A8A902003BFCB00A7CB99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		F79A8A932003BFCB00A7CB99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F79A8A952003BFCB00A7CB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F79A8A982003BFCB00A7CB99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,12 @@
 		F79A8AAE2003BFCC00A7CB99 /* Instagram_cloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instagram_cloneUITests.swift; sourceTree = "<group>"; };
 		F79A8AB02003BFCC00A7CB99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79A8ABC2003C0EE00A7CB99 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		F79A8ABE2003E01900A7CB99 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F79A8AC02003E02F00A7CB99 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
+		F79A8AC22003E06E00A7CB99 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F79A8AC42003E26C00A7CB99 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		F79A8AC62003E28500A7CB99 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +111,15 @@
 		F79A8A8D2003BFCB00A7CB99 /* Instagram_clone */ = {
 			isa = PBXGroup;
 			children = (
+				F79A8ACA2003EA3A00A7CB99 /* PageCont */,
+				F79A8AC92003EA1500A7CB99 /* mainScreen */,
+				F79A8AC82003E9EE00A7CB99 /* login */,
 				F79A8A8E2003BFCB00A7CB99 /* AppDelegate.swift */,
-				F79A8A902003BFCB00A7CB99 /* ViewController.swift */,
 				F79A8A922003BFCB00A7CB99 /* Main.storyboard */,
 				F79A8A952003BFCB00A7CB99 /* Assets.xcassets */,
 				F79A8A972003BFCB00A7CB99 /* LaunchScreen.storyboard */,
 				F79A8A9A2003BFCB00A7CB99 /* Info.plist */,
-				F79A8ABC2003C0EE00A7CB99 /* RootPageViewController.swift */,
+				F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */,
 			);
 			path = Instagram_clone;
 			sourceTree = "<group>";
@@ -126,6 +140,34 @@
 				F79A8AB02003BFCC00A7CB99 /* Info.plist */,
 			);
 			path = Instagram_cloneUITests;
+			sourceTree = "<group>";
+		};
+		F79A8AC82003E9EE00A7CB99 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				F79A8AC22003E06E00A7CB99 /* LoginVC.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		F79A8AC92003EA1500A7CB99 /* mainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */,
+				F79A8AC62003E28500A7CB99 /* SearchVC.swift */,
+			);
+			path = mainScreen;
+			sourceTree = "<group>";
+		};
+		F79A8ACA2003EA3A00A7CB99 /* PageCont */ = {
+			isa = PBXGroup;
+			children = (
+				F79A8ABC2003C0EE00A7CB99 /* RootPageViewController.swift */,
+				F79A8ABE2003E01900A7CB99 /* CameraViewController.swift */,
+				F79A8AC02003E02F00A7CB99 /* MessagingViewController.swift */,
+				F79A8AC42003E26C00A7CB99 /* MainVC.swift */,
+			);
+			path = PageCont;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +304,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79A8AC72003E28500A7CB99 /* SearchVC.swift in Sources */,
 				F79A8ABD2003C0EE00A7CB99 /* RootPageViewController.swift in Sources */,
-				F79A8A912003BFCB00A7CB99 /* ViewController.swift in Sources */,
+				F79A8ABF2003E01900A7CB99 /* CameraViewController.swift in Sources */,
+				F79A8AC32003E06E00A7CB99 /* LoginVC.swift in Sources */,
+				F79A8A912003BFCB00A7CB99 /* FeedsViewController.swift in Sources */,
+				F79A8AC12003E02F00A7CB99 /* MessagingViewController.swift in Sources */,
 				F79A8A8F2003BFCB00A7CB99 /* AppDelegate.swift in Sources */,
+				F79A8ACC2003F72200A7CB99 /* FeedsTableViewCell.swift in Sources */,
+				F79A8AC52003E26C00A7CB99 /* MainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
