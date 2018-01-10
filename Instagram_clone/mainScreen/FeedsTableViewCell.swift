@@ -9,12 +9,12 @@
 import UIKit
 class FeedsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var commentsFeedView: UIStackView!
     @IBOutlet weak var prof_bar: UIView!
-    
-    @IBOutlet weak var feedImg: UIImageView!
-   
-    @IBOutlet weak var fee_stackView: UIStackView!
-    
+    @IBOutlet weak var feedImg: UIButton!
+    var timer = Timer()
+    var isTimerOn: Bool = false
+    var like: Bool = false
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -25,6 +25,7 @@ class FeedsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         profbar()
         feedimage()
+        doubleTap()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,20 +53,42 @@ class FeedsTableViewCell: UITableViewCell {
         let containerView = UIView(frame: CGRect(x:0,y:0,width:345,height:500))
         if let image = UIImage(named: "in2.jpeg") {
             let ratio = image.size.width / image.size.height
+            var newHeight: CGFloat = containerView.frame.height
+            var newWidth: CGFloat = containerView.frame.width
             if containerView.frame.width > containerView.frame.height {
-                let newHeight = containerView.frame.width / ratio
-                feedImg.frame.size = CGSize(width: containerView.frame.width, height: newHeight)
-                feedImg.image = image.resizeImage(newWidth: containerView.frame.width,newHeight: newHeight)
-               
+                newWidth = containerView.frame.height * ratio
             }
             else{
-                let newWidth = containerView.frame.height * ratio
-                feedImg.frame.size = CGSize(width: newWidth, height: containerView.frame.height)
-                feedImg.image = image.resizeImage(newWidth: newWidth,newHeight: containerView.frame.height)
+                 newHeight = containerView.frame.width / ratio
             }
-            print(" width:\(feedImg.frame.width) height:\(feedImg.frame.height)")
+            feedImg.frame = CGRect(x: 0, y: 0, width: newWidth, height: newHeight)
+            let image_Re = image.resizeImage(newWidth: newWidth,newHeight: newHeight)
+            feedImg.setImage(image_Re, for: .normal)
+            
+            print("UIImageView and UIImage resized ")
         }
     }
+    func doubleTap(){
+        feedImg.addTarget(self, action: #selector(self.addLike), for: .touchDown)
+    }
+    @objc func addLike(sender: UIButton!){
+        if(!isTimerOn){
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: false)
+            isTimerOn = true
+        }
+        else{ if(!like) {
+            like = true
+            postLike()
+        }
+        else{ print("already liked")
+            }}}
+    @objc func updateTimer(){
+        isTimerOn = false
+        timer.invalidate()
+    }
+    func postLike(){print("post liked")}
+    //comments view
+    
 }
 
 extension UIImage {
@@ -77,5 +100,6 @@ extension UIImage {
         self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        print("image resized")
         return newImage!
     } }

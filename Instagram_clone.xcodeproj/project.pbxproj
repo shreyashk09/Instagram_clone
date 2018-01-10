@@ -22,6 +22,8 @@
 		F79A8AC52003E26C00A7CB99 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC42003E26C00A7CB99 /* MainVC.swift */; };
 		F79A8AC72003E28500A7CB99 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8AC62003E28500A7CB99 /* SearchVC.swift */; };
 		F79A8ACC2003F72200A7CB99 /* FeedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */; };
+		F7F2002620065929002852BD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2002520065929002852BD /* ProfileVC.swift */; };
+		F7F200282006AC84002852BD /* SubProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F200272006AC84002852BD /* SubProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F79A8AC42003E26C00A7CB99 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		F79A8AC62003E28500A7CB99 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsTableViewCell.swift; sourceTree = "<group>"; };
+		F7F2002520065929002852BD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F7F200272006AC84002852BD /* SubProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +126,6 @@
 				F79A8A952003BFCB00A7CB99 /* Assets.xcassets */,
 				F79A8A972003BFCB00A7CB99 /* LaunchScreen.storyboard */,
 				F79A8A9A2003BFCB00A7CB99 /* Info.plist */,
-				F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */,
 			);
 			path = Instagram_clone;
 			sourceTree = "<group>";
@@ -157,7 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */,
+				F79A8ACB2003F72200A7CB99 /* FeedsTableViewCell.swift */,
 				F79A8AC62003E28500A7CB99 /* SearchVC.swift */,
+				F7F2002520065929002852BD /* ProfileVC.swift */,
+				F7F200272006AC84002852BD /* SubProfileVC.swift */,
 			);
 			path = mainScreen;
 			sourceTree = "<group>";
@@ -312,10 +318,12 @@
 				F79A8ABF2003E01900A7CB99 /* CameraViewController.swift in Sources */,
 				F79A8AC32003E06E00A7CB99 /* LoginVC.swift in Sources */,
 				F79A8A912003BFCB00A7CB99 /* FeedsViewController.swift in Sources */,
+				F7F200282006AC84002852BD /* SubProfileVC.swift in Sources */,
 				F79A8AC12003E02F00A7CB99 /* MessagingViewController.swift in Sources */,
 				F79A8A8F2003BFCB00A7CB99 /* AppDelegate.swift in Sources */,
 				F79A8ACC2003F72200A7CB99 /* FeedsTableViewCell.swift in Sources */,
 				F79A8AC52003E26C00A7CB99 /* MainVC.swift in Sources */,
+				F7F2002620065929002852BD /* ProfileVC.swift in Sources */,
 				F71AC0AA20049CB800B53E3E /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

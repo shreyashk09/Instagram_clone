@@ -11,9 +11,8 @@ import UIKit
 class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-
-    @IBOutlet weak var feedimage: UIImageView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
