@@ -12,11 +12,14 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableView: UITableView!
 
+    @IBOutlet weak var feedimage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
     }
 
     override func didReceiveMemoryWarning() {
