@@ -12,6 +12,8 @@ class FeedsTableViewCell: UITableViewCell {
     @IBOutlet weak var commentsFeedView: UIStackView!
     @IBOutlet weak var prof_bar: UIView!
     @IBOutlet weak var feedImg: UIButton!
+    @IBOutlet weak var writeComments: UIStackView!
+
     var timer = Timer()
     var isTimerOn: Bool = false
     var like: Bool = false
@@ -26,6 +28,7 @@ class FeedsTableViewCell: UITableViewCell {
         profbar()
         feedimage()
         doubleTap()
+        comments()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -69,7 +72,7 @@ class FeedsTableViewCell: UITableViewCell {
         }
     }
     func doubleTap(){
-        feedImg.addTarget(self, action: #selector(self.addLike), for: .touchDown)
+        feedImg.addTarget(self, action: #selector(self.addLike), for: .touchUpInside)
     }
     @objc func addLike(sender: UIButton!){
         if(!isTimerOn){
@@ -88,7 +91,44 @@ class FeedsTableViewCell: UITableViewCell {
     }
     func postLike(){print("post liked")}
     //comments view
-    
+    func comments(){
+        dispComments()
+        viewAllComments()
+        writeComment()
+    }
+    func dispComments(){
+     let  preComments = UILabel(frame: CGRect(x:0,y:0,width:screenWidth-12,height:30))
+        preComments.text = "MR. Bean :" + "This is me...."+"\n"
+        commentsFeedView.addArrangedSubview(preComments)
+        print("pre comments added")
+    }
+    func viewAllComments(){
+        let viewAllButton: UIButton = UIButton()
+        viewAllButton.setTitle("view all 30 comments", for: .normal)
+        viewAllButton.setTitleColor( UIColor.lightGray , for: .normal)
+        viewAllButton.backgroundColor = UIColor.clear
+        viewAllButton.titleLabel!.font = UIFont(name: "Helvetica Neue" , size: 12)
+        viewAllButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 0.0)
+        viewAllButton.contentHorizontalAlignment = .left
+        viewAllButton.addTarget(self, action: #selector(self.allCommentsVC), for: .touchDown)
+        commentsFeedView.addArrangedSubview(viewAllButton)
+    }
+    @objc func allCommentsVC(){
+     print("all comments")
+    }
+    func writeComment(){
+        let commentTextArea: UITextView = UITextView(frame: CGRect(x:0,y:0,width:screenWidth-30-12,height:30))
+        commentTextArea.text = "comment Text"
+        let pImage: UIImageView = UIImageView(frame: CGRect(x:0,y:0,width:20,height:20))
+        pImage.image = UIImage(named: "prof2.jpeg")?.resizeImage(newWidth: 20,newHeight: 20)
+        writeComments.addArrangedSubview(pImage)
+        writeComments.addArrangedSubview(commentTextArea)
+        commentsFeedView.addArrangedSubview(writeComments)
+        print("write commentsubview added")
+    }
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: screenWidth, height: 60)
+    }
 }
 
 extension UIImage {

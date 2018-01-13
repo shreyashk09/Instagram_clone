@@ -9,7 +9,12 @@
 import UIKit
 
 class ProfileVC: UIViewController, UITabBarDelegate{
-    
+    //part-1
+    @IBOutlet weak var layer1: UIStackView!
+    @IBOutlet weak var layer2_1: UIStackView!
+    @IBOutlet weak var layer2_2: UIStackView!
+    @IBOutlet weak var layer1_2: UIStackView!
+    //part-2
     @IBOutlet weak var viewTabBar: UIView!
     @IBOutlet weak var segmentProf: UISegmentedControl!
     var currentVC: UIViewController!
@@ -30,12 +35,45 @@ class ProfileVC: UIViewController, UITabBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         currentVC = CameraViewController
+        selfProfSec()
          setupView()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    //part-I
+    func selfProfSec(){
+        profilePic()
+        optionsProf()
+    }
+    func profilePic(){
+    let ppic = UIImageView(frame: CGRect(x:0,y:0,width:60,height:60))
+        ppic.image = UIImage(named: "prof2.jpeg")?.resizeImage(newWidth: 60,newHeight: 60)
+        layer1.addArrangedSubview(ppic)
+    }
+    func optionsProf(){
+        
+        let tArray: [String:Int] = ["posts": 10, "followers": 100, "following": 50]
+       // let fArray: [Int] = [10, 100, 50]
+        var str1 = NSMutableAttributedString()
+        
+        for (str,val) in tArray {
+            let lbl = UILabel(frame: CGRect(x:0,y:0,width:30,height:60))
+            let val1 = String(val)
+            str1 = NSMutableAttributedString(string: val1 + "\n" + str, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 18.0)!])
+            //str1.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "AmericanTypewriter-Bold", size: 18.0)!, range: NSRange(location:0,length:val1.count))
+            let x = String(str).count
+            str1.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "AmericanTypewriter-Bold", size: 10.0)!, range: NSRange(location:val1.count,length: x))
+    str1.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: NSRange(location:val1.count,length:x))
+            lbl.attributedText = str1
+            layer2_1.addArrangedSubview(lbl)
+            layer1.addArrangedSubview(layer1_2)
+        }
+    }
+    
+    
+    //part-II
     func setupView() {
         setupSegmentedControl()
         updateView()
@@ -74,7 +112,6 @@ class ProfileVC: UIViewController, UITabBarDelegate{
         }
     }
     
-    
     private func add(asChildViewController viewController: UIViewController) {
         addChildViewController(viewController)
         viewTabBar.addSubview(viewController.view)
@@ -82,6 +119,7 @@ class ProfileVC: UIViewController, UITabBarDelegate{
         viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewController.didMove(toParentViewController: self)
     }
+    
     private func remove(asChildViewController viewController: UIViewController) {
         viewController.willMove(toParentViewController: nil)
         viewController.view.removeFromSuperview()
