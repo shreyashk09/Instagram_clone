@@ -39,7 +39,8 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
         currentVC = Seg2
         selfProfSec()
          setupView()
-        scrollViewDidScroll(mainScroll)
+        constraint()
+        //scrollViewDidScroll(mainScroll)
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,25 +141,25 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let yOffset = scrollView.contentOffset.y
-        constraint(varH: yOffset)
-        print("y offset: \(yOffset)")
-            if yOffset >= 180{
-                mainScroll.isScrollEnabled = false
-                Seg2.tableView.isScrollEnabled = true
-            }
-       
-            if yOffset < 180 {
-                mainScroll.isScrollEnabled = true
-                Seg2.tableView.isScrollEnabled = false
-            }
-    }
-    func constraint(varH: CGFloat){
-        
-        viewTabBar.alignmentRect(forFrame: CGRect(x: 0, y: 0, width: 345, height: 100))
-        //viewTabBar.removeConstraints([])
-        print("height: \(viewTabBar.heightAnchor)")
+  //  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let yOffset = scrollView.contentOffset.y
+//        constraint(varH: yOffset)
+//        print("y offset: \(yOffset)")
+//            if yOffset >= 180{
+//                mainScroll.isScrollEnabled = false
+//                Seg2.tableView.isScrollEnabled = true
+//            }
+//
+//            if yOffset < 180 {
+//                mainScroll.isScrollEnabled = true
+//                Seg2.tableView.isScrollEnabled = false
+//            }
+  //  }
+    func constraint(){
+        let heightConstraints =  viewTabBar.heightAnchor.constraint(equalToConstant: screenHeight)
+        viewTabBar.addConstraints([heightConstraints])
+        viewTabBar.updateConstraints()
+        print("height: \(viewTabBar.frame.size.height)")
     }
 }
 
