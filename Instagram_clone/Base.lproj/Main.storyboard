@@ -510,6 +510,9 @@
                                     <constraint firstAttribute="trailing" secondItem="OwO-bE-YDW" secondAttribute="trailing" id="wlK-il-aLb"/>
                                     <constraint firstItem="cEH-JN-xQc" firstAttribute="trailing" secondItem="dY7-gs-Glu" secondAttribute="trailing" id="xns-dR-HAF"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="iTj-uG-HtC" id="Rgl-Dp-qq8"/>
+                                </connections>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVr-Ge-OJc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>

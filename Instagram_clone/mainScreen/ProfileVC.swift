@@ -35,7 +35,10 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mainScroll.isScrollEnabled = true
+        mainScroll.isScrollEnabled = true
+        Seg2.tableView.isScrollEnabled = false
+        mainScroll.bounces = false
+        Seg2.tableView.bounces = false
         currentVC = Seg2
         selfProfSec()
          setupView()
@@ -141,6 +144,20 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
     
+    
+    func scrollViewDidScroll(_ scrollview: UIScrollView) {
+         let yOffset = mainScroll.contentOffset.y
+        if yOffset == 0 {
+            Seg2.tableView.isScrollEnabled = false
+        }
+        if yOffset >= 200 {
+            Seg2.tableView.isScrollEnabled = true
+        }
+        if yOffset <= 200 {
+            Seg2.tableView.isScrollEnabled = false
+        }
+        print("scrolling : \(yOffset)")
+    }
   //  func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let yOffset = scrollView.contentOffset.y
 //        constraint(varH: yOffset)
