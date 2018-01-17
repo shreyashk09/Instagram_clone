@@ -29,6 +29,7 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.bounces = false
         mainScroll.bounces = false
         collectionView.bounces = false
+         mainScroll.isScrollEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,16 +87,13 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = mainScroll.contentOffset.y
         print("scrolling: \(yOffset)")
-        if yOffset == 155 {
-            mainScroll.isScrollEnabled = true
+        if yOffset == 0 {
+            tableView.isScrollEnabled = false
+        }
+        if yOffset >= 155 {
             tableView.isScrollEnabled = true
         }
-        else if yOffset > 155 {
-            mainScroll.isScrollEnabled = false
-            tableView.isScrollEnabled = true
-        }
-        else {
-            mainScroll.isScrollEnabled = true
+        if yOffset <= 155 {
             tableView.isScrollEnabled = false
         }
     }
