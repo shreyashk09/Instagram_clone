@@ -10,18 +10,22 @@ import UIKit
 
 class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var storyStackView: UIStackView!
     @IBOutlet weak var mainScroll: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainScroll.isScrollEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
+        tableViewConstraints()
+        collectionViewConstraints()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +58,27 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //let cell1 = tableView.cellForRow(at: indexPath)!
         print("\(indexPath)")
+    }
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    func tableViewConstraints(){
+        let width = tableView.heightAnchor.constraint(equalToConstant: screenWidth)
+        let height = tableView.heightAnchor.constraint(equalToConstant: screenHeight)
+        tableView.addConstraints([height, width])
+        tableView.updateConstraints()
+    }
+    func collectionViewConstraints(){
+        let width = collectionView.heightAnchor.constraint(equalToConstant: screenWidth)
+        let height = collectionView.heightAnchor.constraint(equalToConstant: 150)
+        collectionView.addConstraints([height, width])
+        storyStackView.addConstraints([height,width])
+        storyStackView.updateConstraints()
+        collectionView.updateConstraints()
     }
     
 }
