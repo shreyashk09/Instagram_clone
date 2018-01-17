@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource,UIScrollViewDelegate {
     
     @IBOutlet weak var storyStackView: UIStackView!
     @IBOutlet weak var mainScroll: UIScrollView!
@@ -26,6 +26,9 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.estimatedRowHeight = 44
         tableViewConstraints()
         collectionViewConstraints()
+        tableView.bounces = false
+        mainScroll.bounces = false
+        collectionView.bounces = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,19 +70,34 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableViewConstraints(){
-        let width = tableView.heightAnchor.constraint(equalToConstant: screenWidth)
+        let width = tableView.widthAnchor.constraint(equalToConstant: screenWidth)
         let height = tableView.heightAnchor.constraint(equalToConstant: screenHeight)
         tableView.addConstraints([height, width])
         tableView.updateConstraints()
     }
     func collectionViewConstraints(){
-        let width = collectionView.heightAnchor.constraint(equalToConstant: screenWidth)
+       // let width = collectionView.widthAnchor.constraint(equalToConstant: screenWidth)
         let height = collectionView.heightAnchor.constraint(equalToConstant: 150)
-        collectionView.addConstraints([height, width])
-        storyStackView.addConstraints([height,width])
-        storyStackView.updateConstraints()
+        collectionView.addConstraints([height])
         collectionView.updateConstraints()
     }
     
+    //scrolling
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = mainScroll.contentOffset.y
+        print("scrolling: \(yOffset)")
+        if yOffset == 155 {
+            mainScroll.isScrollEnabled = true
+            tableView.isScrollEnabled = true
+        }
+        else if yOffset > 155 {
+            mainScroll.isScrollEnabled = false
+            tableView.isScrollEnabled = true
+        }
+        else {
+            mainScroll.isScrollEnabled = true
+            tableView.isScrollEnabled = false
+        }
+    }
 }
 

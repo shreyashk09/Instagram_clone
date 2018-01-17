@@ -88,7 +88,12 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     //part-II
     func setupView() {
         setupSegmentedControl()
-        updateView()
+        remove(asChildViewController: currentVC)
+        mainScroll.isScrollEnabled = true
+        constraint_seg()
+        add(asChildViewController: MessagingViewController)
+        currentVC = MessagingViewController
+        print("profile segment 0")
     }
     private func setupSegmentedControl() {
         segmentProf.addTarget(SubProfileVC(), action: #selector(updateView), for: .valueChanged)
