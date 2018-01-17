@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F71AC0AA20049CB800B53E3E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AC0A920049CB800B53E3E /* Const.swift */; };
+		F77BA02B200E6BE1009D7299 /* Seg2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BA02A200E6BE1009D7299 /* Seg2.swift */; };
 		F79A8A8F2003BFCB00A7CB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8A8E2003BFCB00A7CB99 /* AppDelegate.swift */; };
 		F79A8A912003BFCB00A7CB99 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */; };
 		F79A8A942003BFCB00A7CB99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A8A922003BFCB00A7CB99 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		F71AC0A920049CB800B53E3E /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		F77BA02A200E6BE1009D7299 /* Seg2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seg2.swift; sourceTree = "<group>"; };
 		F79A8A8B2003BFCB00A7CB99 /* Instagram_clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram_clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79A8A8E2003BFCB00A7CB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79A8A902003BFCB00A7CB99 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F77BA027200E6671009D7299 /* Profile SEgments */ = {
+			isa = PBXGroup;
+			children = (
+				F77BA02A200E6BE1009D7299 /* Seg2.swift */,
+			);
+			path = "Profile SEgments";
+			sourceTree = "<group>";
+		};
 		F79A8A822003BFCB00A7CB99 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		F79A8A8D2003BFCB00A7CB99 /* Instagram_clone */ = {
 			isa = PBXGroup;
 			children = (
+				F77BA027200E6671009D7299 /* Profile SEgments */,
 				F79A8ACA2003EA3A00A7CB99 /* PageCont */,
 				F79A8AC92003EA1500A7CB99 /* mainScreen */,
 				F79A8AC82003E9EE00A7CB99 /* login */,
@@ -324,6 +335,7 @@
 				F79A8ACC2003F72200A7CB99 /* FeedsTableViewCell.swift in Sources */,
 				F79A8AC52003E26C00A7CB99 /* MainVC.swift in Sources */,
 				F7F2002620065929002852BD /* ProfileVC.swift in Sources */,
+				F77BA02B200E6BE1009D7299 /* Seg2.swift in Sources */,
 				F71AC0AA20049CB800B53E3E /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

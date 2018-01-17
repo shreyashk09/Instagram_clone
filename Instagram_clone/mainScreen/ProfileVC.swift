@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProfileVC: UIViewController, UITabBarDelegate{
+class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
+    @IBOutlet weak var mainScroll: UIScrollView!
     //part-1
     @IBOutlet weak var layer1: UIStackView!
     @IBOutlet weak var layer2_1: UIStackView!
@@ -20,8 +21,8 @@ class ProfileVC: UIViewController, UITabBarDelegate{
     var currentVC: UIViewController!
     let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
     
-    private lazy var CameraViewController: CameraViewController = {
-        var viewController = storyBoard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
+    private lazy var Seg2: Seg2 = {
+        var viewController = storyBoard.instantiateViewController(withIdentifier: "Profileseg2") as! Seg2
         self.add(asChildViewController: viewController)
         return viewController
     }()
@@ -34,9 +35,11 @@ class ProfileVC: UIViewController, UITabBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentVC = CameraViewController
+        //mainScroll.isScrollEnabled = true
+        currentVC = Seg2
         selfProfSec()
          setupView()
+        scrollViewDidScroll(mainScroll)
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,17 +59,26 @@ class ProfileVC: UIViewController, UITabBarDelegate{
         
         let tArray: [String:Int] = ["posts": 10, "followers": 100, "following": 50]
        // let fArray: [Int] = [10, 100, 50]
-        var str1 = NSMutableAttributedString()
+       // var str1 = NSMutableAttributedString()
         
         for (str,val) in tArray {
-            let lbl = UILabel(frame: CGRect(x:0,y:0,width:30,height:60))
-            let val1 = String(val)
-            str1 = NSMutableAttributedString(string: val1 + "\n" + str, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 18.0)!])
-            //str1.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "AmericanTypewriter-Bold", size: 18.0)!, range: NSRange(location:0,length:val1.count))
-            let x = String(str).count
-            str1.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "AmericanTypewriter-Bold", size: 10.0)!, range: NSRange(location:val1.count,length: x))
-    str1.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: NSRange(location:val1.count,length:x))
-            lbl.attributedText = str1
+            let str1 = " "+str
+            let lbl = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 100))
+            let astr = NSMutableAttributedString(string: str1, attributes: [
+                NSAttributedStringKey.foregroundColor: UIColor.lightGray,
+                NSAttributedStringKey.font: UIFont(name: "Arial", size: 14.0)
+                ] as [NSAttributedStringKey : Any])
+            
+            let astr1 = NSMutableAttributedString(string: "String(val)", attributes: [
+                NSAttributedStringKey.foregroundColor: UIColor.black,
+                NSAttributedStringKey.font: UIFont(name: "Arial", size: 24.0)
+                ] as [NSAttributedStringKey : Any])
+            astr1.append(astr)
+            lbl.titleLabel?.attributedText = astr1
+            lbl.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            lbl.titleLabel?.numberOfLines = 2
+            lbl.setAttributedTitle(astr, for: .normal)
+            lbl.backgroundColor = UIColor.blue
             layer2_1.addArrangedSubview(lbl)
             layer1.addArrangedSubview(layer1_2)
         }
@@ -91,8 +103,8 @@ class ProfileVC: UIViewController, UITabBarDelegate{
             break
         case 2 :
             remove(asChildViewController: currentVC)
-            add(asChildViewController: CameraViewController)
-            currentVC = CameraViewController
+            add(asChildViewController: Seg2)
+            currentVC = Seg2
             print("profile segment 2")
             break
         case 3 :
@@ -103,8 +115,8 @@ class ProfileVC: UIViewController, UITabBarDelegate{
             break
         case 0 :
             remove(asChildViewController: currentVC)
-            add(asChildViewController: CameraViewController)
-            currentVC = CameraViewController
+            add(asChildViewController: Seg2)
+            currentVC = Seg2
             print("profile segment 0")
             break
         default:
@@ -124,6 +136,29 @@ class ProfileVC: UIViewController, UITabBarDelegate{
         viewController.willMove(toParentViewController: nil)
         viewController.view.removeFromSuperview()
         viewController.removeFromParentViewController()
+    }
+    let screenHeight = UIScreen.main.bounds.height
+    let scrollViewContentHeight = 1200 as CGFloat
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        constraint(varH: yOffset)
+        print("y offset: \(yOffset)")
+            if yOffset >= 180{
+                mainScroll.isScrollEnabled = false
+                Seg2.tableView.isScrollEnabled = true
+            }
+       
+            if yOffset < 180 {
+                mainScroll.isScrollEnabled = true
+                Seg2.tableView.isScrollEnabled = false
+            }
+    }
+    func constraint(varH: CGFloat){
+        
+        viewTabBar.alignmentRect(forFrame: CGRect(x: 0, y: 0, width: 345, height: 100))
+        //viewTabBar.removeConstraints([])
+        print("height: \(viewTabBar.heightAnchor)")
     }
 }
 

@@ -95,6 +95,7 @@ class FeedsTableViewCell: UITableViewCell {
         dispComments()
         viewAllComments()
         writeComment()
+        timePost()
     }
     func dispComments(){
      let  preComments = UILabel(frame: CGRect(x:0,y:0,width:screenWidth-12,height:30))
@@ -126,8 +127,13 @@ class FeedsTableViewCell: UITableViewCell {
         commentsFeedView.addArrangedSubview(writeComments)
         print("write commentsubview added")
     }
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: screenWidth, height: 60)
+    
+    func timePost(){
+        let pTime: UILabel = UILabel(frame: CGRect(x: 0, y:0, width: 100, height:100))
+        pTime.text = " 20" + " Hours" + " Ago"
+        pTime.textColor = UIColor.lightGray
+        pTime.font = UIFont(name: "Helvetica", size: 12)
+        commentsFeedView.addArrangedSubview(pTime)
     }
 }
 

@@ -12,7 +12,6 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -32,15 +31,18 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedsCell", for: indexPath)
-        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //let cell1 = tableView.cellForRow(at: indexPath)!
+        print("\(indexPath)")
+    }
     
 }
 
