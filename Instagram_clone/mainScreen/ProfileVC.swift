@@ -42,7 +42,6 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
         currentVC = Seg2
         selfProfSec()
          setupView()
-        constraint()
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,26 +97,34 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
         switch (segmentProf.selectedSegmentIndex) {
         case 1:
             remove(asChildViewController: currentVC)
-            add(asChildViewController: MessagingViewController)
-            currentVC = MessagingViewController
+            mainScroll.isScrollEnabled = true
+            add(asChildViewController: Seg2)
+            constraint_seg2()
+            currentVC = Seg2
             print("profile segment 1")
             break
         case 2 :
             remove(asChildViewController: currentVC)
-            add(asChildViewController: Seg2)
-            currentVC = Seg2
+            mainScroll.isScrollEnabled = false
+           // constraint_seg()
+            add(asChildViewController: MessagingViewController)
+            currentVC = MessagingViewController
             print("profile segment 2")
             break
         case 3 :
             remove(asChildViewController: currentVC)
+            mainScroll.isScrollEnabled = false
+            //constraint_seg()
             add(asChildViewController: MessagingViewController)
             currentVC = MessagingViewController
             print("profile segment 3")
             break
         case 0 :
             remove(asChildViewController: currentVC)
-            add(asChildViewController: Seg2)
-            currentVC = Seg2
+            mainScroll.isScrollEnabled = true
+            //constraint_seg()
+            add(asChildViewController: MessagingViewController)
+            currentVC = MessagingViewController
             print("profile segment 0")
             break
         default:
@@ -143,6 +150,7 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     
     
     func scrollViewDidScroll(_ scrollview: UIScrollView) {
+        //segment 1 scrolling
          let yOffset = mainScroll.contentOffset.y
         if yOffset == 0 {
             Seg2.tableView.isScrollEnabled = false
@@ -154,13 +162,21 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
             Seg2.tableView.isScrollEnabled = false
         }
         print("scrolling : \(yOffset)")
+        //segment 0 scrolling
     }
     
-    func constraint(){
-        let heightConstraints =  viewTabBar.heightAnchor.constraint(equalToConstant: screenHeight)
-        viewTabBar.addConstraints([heightConstraints])
+    func constraint_seg2(){
+            let height =  viewTabBar.heightAnchor.constraint(equalToConstant: screenHeight)
+            viewTabBar.addConstraints([height])
         viewTabBar.updateConstraints()
         print("height: \(viewTabBar.frame.size.height)")
     }
+    func constraint_seg(){
+        let height =  viewTabBar.heightAnchor.constraint(equalToConstant: screenHeight-200)
+        viewTabBar.addConstraints([height])
+        viewTabBar.updateConstraints()
+        print("height: \(viewTabBar.frame.size.height)")
+    }
+    
 }
 
