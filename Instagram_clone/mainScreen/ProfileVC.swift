@@ -43,7 +43,6 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
         selfProfSec()
          setupView()
         constraint()
-        //scrollViewDidScroll(mainScroll)
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,8 +61,6 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
     func optionsProf(){
         
         let tArray: [String:Int] = ["posts": 10, "followers": 100, "following": 50]
-       // let fArray: [Int] = [10, 100, 50]
-       // var str1 = NSMutableAttributedString()
         
         for (str,val) in tArray {
             let str1 = " "+str
@@ -158,20 +155,7 @@ class ProfileVC: UIViewController, UITabBarDelegate,UIScrollViewDelegate{
         }
         print("scrolling : \(yOffset)")
     }
-  //  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let yOffset = scrollView.contentOffset.y
-//        constraint(varH: yOffset)
-//        print("y offset: \(yOffset)")
-//            if yOffset >= 180{
-//                mainScroll.isScrollEnabled = false
-//                Seg2.tableView.isScrollEnabled = true
-//            }
-//
-//            if yOffset < 180 {
-//                mainScroll.isScrollEnabled = true
-//                Seg2.tableView.isScrollEnabled = false
-//            }
-  //  }
+    
     func constraint(){
         let heightConstraints =  viewTabBar.heightAnchor.constraint(equalToConstant: screenHeight)
         viewTabBar.addConstraints([heightConstraints])
